@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Inputbox from "../inputelement/Inputbox";
+import axios from "axios";
 
 const Addricemill = () => {
   const [Addricedata, setAddricedata] = useState({
@@ -50,7 +51,7 @@ const Addricemill = () => {
     }
     try {
       const response = await axios.post(
-        "http://mill.dappfolk.com/add-rice-mill/",
+        "http://localhost:8000/add-rice-mill/",
         Addricedata,
         {
           headers: {

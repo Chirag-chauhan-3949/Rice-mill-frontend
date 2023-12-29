@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // ... (previous imports)
 
 function View_BardanaType() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [Riceid, setRiceid] = useState({
     select_mill_id: "",
   });
@@ -21,7 +22,12 @@ function View_BardanaType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "http://localhost:8000/rice-mill"
+          "http://localhost:8000/rice-mill",
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = Ricemil_response.data;
@@ -51,7 +57,12 @@ function View_BardanaType() {
     async function fetchMillData() {
       try {
         const All_Mix_Data_response = await axios.get(
-          `http://localhost:8000/bardaha-data/${Riceid.select_mill_id}`
+          `http://localhost:8000/bardaha-data/${Riceid.select_mill_id}`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const responseData = All_Mix_Data_response.data;

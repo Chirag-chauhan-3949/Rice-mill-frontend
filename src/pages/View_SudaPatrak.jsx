@@ -1,10 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_SudaPatrak() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/sauda-patrak-data")
+      .get("http://localhost:8000/sauda-patrak-data", {
+        headers: {
+          "api-key": apiKey,
+        },
+      })
       .then((res) => setdata(res.data))
       .catch((err) => console.log(err));
   }, []);

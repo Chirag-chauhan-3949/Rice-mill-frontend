@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // ... (previous imports)
 
 function View_BardanaType() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [Riceid, setRiceid] = useState({
     select_mill_id: "",
   });
@@ -24,7 +25,7 @@ function View_BardanaType() {
           "http://localhost:8000/rice-mill",
           {
             headers: {
-              "api-key": "your_secret_api_key",
+              "api-key": apiKey,
             },
           }
         );

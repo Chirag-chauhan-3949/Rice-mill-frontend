@@ -1,11 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_RiceDeposit() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/rice-deposite-data")
+      .get("http://localhost:8000/rice-deposite-data", {
+        headers: {
+          "api-key": apiKey,
+        },
+      })
       .then((res) => {
         setdata(res.data);
       })

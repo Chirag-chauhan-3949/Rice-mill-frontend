@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_RiceMill() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [data, setdata] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -8,7 +9,7 @@ function View_RiceMill() {
         // Replace 'YOUR_API_KEY' with your actual API key
         const response = await axios.get("http://localhost:8000/rice-mill/", {
           headers: {
-            "api-key": "your_secret_api_key",
+            "api-key": apiKey,
           },
         });
 

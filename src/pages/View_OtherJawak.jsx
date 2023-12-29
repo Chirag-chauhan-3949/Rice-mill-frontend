@@ -1,11 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_OtherJawak() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/other-jawak-data")
+      .get("http://localhost:8000/other-jawak-data", {
+        headers: {
+          "api-key": apiKey,
+        },
+      })
       .then((res) => {
         setdata(res.data);
       })
