@@ -27,7 +27,7 @@ const Add_Broker = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(brokerdata);
+    console.log(brokerdata);
     try {
       const response = await axios.post(
         "http://localhost:8000/broker/",
@@ -40,7 +40,7 @@ const Add_Broker = () => {
       );
 
       if (response.status === 200) {
-        // console.log("Transporter added successfully");
+        console.log("Transporter added successfully");
         toast.success("Transporter added successfully", {
           position: "top-right",
           autoClose: 3000,
